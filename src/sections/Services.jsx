@@ -55,7 +55,7 @@ export default function Services({ isMobile, activeService, setActiveService }) 
                 Full Stack <span className="text-[#2DD4BF]">Web Solutions</span>
               </motion.h2>
             </div>
-            <motion.p variants={fadeInUp} className="lg:col-span-5 text-[#5B6B7A] text-lg leading-relaxed text-center lg:text-left lg:pb-2">
+            <motion.p variants={fadeInUp} className="lg:col-span-5 text-[#00000] text-lg leading-relaxed text-center lg:text-left lg:pb-2">
               Custom-coded web applications, scalable architectures, and hand-built solutions that deliver measurable ROI
             </motion.p>
           </motion.div>
@@ -153,10 +153,10 @@ export default function Services({ isMobile, activeService, setActiveService }) 
             <Link
               to="/services"
               onClick={() => window.scrollTo(0, 0)}
-              className="group inline-flex items-center gap-2 font-semibold text-[#142433] hover:text-[#0D9488] transition-colors"
+              className="group inline-flex items-center gap-2 font-semibold text-[#EA580C] hover:text-[#FB923C] transition-colors"
             >
               <span className="font-mono text-xs tracking-[0.25em] uppercase">View All Services</span>
-              <span className="w-9 h-9 rounded-full border border-[#142433]/20 group-hover:border-[#0D9488] group-hover:bg-[#0D9488] group-hover:text-white flex items-center justify-center transition-all">
+              <span className="w-9 h-9 rounded-full border border-[#EA580C]/40 group-hover:border-[#EA580C] group-hover:bg-[#EA580C] group-hover:text-white flex items-center justify-center transition-all">
                 <ArrowUpRight size={16} />
               </span>
             </Link>

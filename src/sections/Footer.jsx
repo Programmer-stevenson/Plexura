@@ -51,10 +51,10 @@ export default function Footer() {
     <div className="py-14 lg:py-16 text-center">
       {/* intro — centered */}
       <div className="flex flex-col items-center space-y-6 max-w-md mx-auto mb-14 lg:mb-16">
-        <p className="text-[#9FB6B2] leading-relaxed max-w-xs">
+        <p className="text-[#00000] leading-relaxed max-w-xs">
           Full stack web development agency. Custom code, scalable architecture, and craftsmanship that converts.
         </p>
-        <div className="flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-[#9FB6B2]">
+        <div className="flex items-center justify-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-[#00000]">
           <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full animate-pulse" />
           Accepting new projects
         </div>
@@ -82,7 +82,7 @@ export default function Footer() {
           <h3 className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#2DD4BF] mb-6">Services</h3>
           <div className="space-y-3.5">
             {["Custom Web Development", "WordPress Solutions", "Web Applications", "IT Consulting"].map((label, i) => (
-              <Link key={i} to="/services" onClick={() => window.scrollTo(0, 0)} className="group flex items-center justify-center text-[#9FB6B2] hover:text-[#F2F9FF] transition-colors">
+              <Link key={i} to="/services" onClick={() => window.scrollTo(0, 0)} className="group flex items-center justify-center text-[#00000] hover:text-[#F2F9FF] transition-colors">
                 <span className="w-0 group-hover:w-4 h-px bg-[#FB923C] mr-0 group-hover:mr-2 transition-all duration-300" />
                 {label}
               </Link>
@@ -93,16 +93,16 @@ export default function Footer() {
         <div>
           <h3 className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#2DD4BF] mb-6">Explore</h3>
           <div className="space-y-3.5">
-            <a href="#home" className="group flex items-center justify-center text-[#9FB6B2] hover:text-[#F2F9FF] transition-colors">
+            <a href="#home" className="group flex items-center justify-center text-[#00000] hover:text-[#F2F9FF] transition-colors">
               <span className="w-0 group-hover:w-4 h-px bg-[#FB923C] mr-0 group-hover:mr-2 transition-all duration-300" />Home
             </a>
-            <a href="#about" className="group flex items-center justify-center text-[#9FB6B2] hover:text-[#F2F9FF] transition-colors">
+            <a href="#about" className="group flex items-center justify-center text-[#00000] hover:text-[#F2F9FF] transition-colors">
               <span className="w-0 group-hover:w-4 h-px bg-[#FB923C] mr-0 group-hover:mr-2 transition-all duration-300" />About Us
             </a>
-            <Link to="/services" onClick={() => window.scrollTo(0, 0)} className="group flex items-center justify-center text-[#9FB6B2] hover:text-[#F2F9FF] transition-colors">
+            <Link to="/services" onClick={() => window.scrollTo(0, 0)} className="group flex items-center justify-center text-[#00000] hover:text-[#F2F9FF] transition-colors">
               <span className="w-0 group-hover:w-4 h-px bg-[#FB923C] mr-0 group-hover:mr-2 transition-all duration-300" />Services
             </Link>
-            <a href="#contact" className="group flex items-center justify-center text-[#9FB6B2] hover:text-[#F2F9FF] transition-colors">
+            <a href="#contact" className="group flex items-center justify-center text-[#00000] hover:text-[#F2F9FF] transition-colors">
               <span className="w-0 group-hover:w-4 h-px bg-[#FB923C] mr-0 group-hover:mr-2 transition-all duration-300" />Contact
             </a>
           </div>
@@ -110,7 +110,7 @@ export default function Footer() {
 
         <div className="col-span-2 sm:col-span-1">
           <h3 className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#2DD4BF] mb-6">Contact</h3>
-          <div className="space-y-3.5 text-[#9FB6B2]">
+          <div className="space-y-3.5 text-[#00000]">
             <div className="flex items-center justify-center gap-3"><MapPin size={15} className="text-[#2DD4BF] flex-shrink-0" /> Las Vegas, Nevada</div>
             <a href="mailto:contact@plexura.com" className="flex items-center justify-center gap-3 hover:text-[#F2F9FF] transition-colors">
               <Mail size={15} className="text-[#2DD4BF] flex-shrink-0" /> contact@plexura.com
@@ -124,7 +124,7 @@ export default function Footer() {
     </div>
 
     {/* bottom rule */}
-    <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-[11px] tracking-[0.15em] uppercase text-[#9FB6B2]/80">
+    <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-[11px] tracking-[0.15em] uppercase text-[#00000]/80">
       <span>© 2026 Plexura — All rights reserved</span>
       <div className="flex items-center gap-6">
         <Link to="/terms" className="hover:text-[#2DD4BF] transition-colors">Terms of Service</Link>

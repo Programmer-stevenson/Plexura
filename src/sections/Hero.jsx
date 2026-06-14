@@ -88,7 +88,7 @@ export default function Hero({ mobileMenuOpen }) {
             transition={{ delay: 1.1, duration: 0.7 }}
             className="mt-10 lg:mt-16 grid lg:grid-cols-12 gap-8 items-end border-t border-[#F4FAFB]/10 pt-8"
           >
-            <p className="lg:col-span-6 text-lg md:text-xl text-[#1B222A] leading-relaxed max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+            <p className="lg:col-span-6 text-lg md:text-xl text-[#00000] leading-relaxed max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
               Plexura designs and engineers high-performance websites, brands, and digital platforms for growing companies—custom-built, fully integrated, and engineered for results.
             </p>
             <div className="lg:col-span-6 flex flex-wrap justify-center lg:justify-end items-center gap-4">

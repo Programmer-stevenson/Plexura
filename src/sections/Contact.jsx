@@ -53,7 +53,7 @@ export default function Contact({ formSubmitted, isSubmitting, submitError, hand
         transition={{ duration: 0.6 }}
         className="lg:col-span-5"
       >
-        <p className="text-lg text-[#9FB6B2] leading-relaxed max-w-md mb-12">
+        <p className="text-lg text-[#00000] leading-relaxed max-w-md mb-12">
           Transform your vision into a digital masterpiece. We craft experiences that captivate, convert, and scale. No templates, no shortcuts—just results.
         </p>
 

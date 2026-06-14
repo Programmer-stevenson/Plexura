@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Code, Target, Linkedin, Facebook, ExternalLink, LifeBuoy, X } from 'lucide-react';
+import { Linkedin, Facebook, ExternalLink, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, fadeInDown, staggerContainer, AnimatedSection, GlowCard } from '../components/ui';
 
@@ -9,21 +9,19 @@ import { fadeInUp, fadeInDown, staggerContainer, AnimatedSection, GlowCard } fro
 const MEMBERS = [
   {
     name: 'Daniel Velez',
-    role: 'Co-Founder \u2022 Director of Strategy & Sales',
+    role: 'Sales Engineer \u2022 Growth & Strategy',
     bio: 'Drives client relationships, business development, and marketing strategy. Turns vision into actionable plans that deliver measurable results.',
     img: '/daniel.png',
     initials: 'DV',
-    icon: Target,
     accent: 'from-[#EA580C] to-[#F87171]',
     linkedin: 'https://www.linkedin.com/in/daniel-velez-898195208/',
   },
   {
     name: 'Brandon Stevenson',
-    role: 'Co-Founder \u2022 Director of Technology',
+    role: 'Software Engineer \u2022 Product & Development',
     bio: 'Architects and builds every product from the ground up. Full stack engineer specializing in React, Node.js, and scalable cloud infrastructure.',
     img: '/brandon.jpg',
     initials: 'BS',
-    icon: Code,
     accent: 'from-[#EA580C] to-[#EA580C]',
     linkedin: 'https://www.linkedin.com/in/brandonstevensonprograms/',
   },
@@ -33,7 +31,6 @@ const MEMBERS = [
     bio: 'Keeps client applications running smoothly\u2014handling support requests, troubleshooting issues, and making sure help is fast and reliable.',
     img: '/Ed.jpg',
     initials: 'ED',
-    icon: LifeBuoy,
     accent: 'from-[#EA580C] to-[#F87171]',
     linkedin: 'https://www.linkedin.com/in/edwardcoconnelliii/',
   },
@@ -59,7 +56,6 @@ function Avatar({ member, size }) {
 
 // ── Card ──────────────────────────────────────────────────
 function TeamCard({ member, isMobile, onSeeMore }) {
-  const Icon = member.icon;
   return (
     <GlowCard
       isMobile={isMobile}
@@ -68,20 +64,15 @@ function TeamCard({ member, isMobile, onSeeMore }) {
       <div className="relative flex flex-col h-full">
         {/* Profile Image */}
         <div className="flex justify-center mb-4 md:mb-6">
-          <div className="relative">
-            <Avatar member={member} size="w-24 h-24 md:w-32 md:h-32" />
-            <div className={`absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br ${member.accent} rounded-lg flex items-center justify-center shadow-lg`}>
-              <Icon size={16} className="text-white" />
-            </div>
-          </div>
+          <Avatar member={member} size="w-24 h-24 md:w-32 md:h-32" />
         </div>
 
         {/* Info */}
         <div className="text-center mb-4 md:mb-6 flex-1">
           <h3 className="text-lg md:text-2xl font-bold text-[#142433] mb-1">{member.name}</h3>
-          <p className="text-[#0D9488] font-semibold text-xs md:text-sm mb-3">{member.role}</p>
-          {/* Bio is clamped on mobile, shown in full from md up */}
-          <p className="text-[#51606E] text-sm leading-relaxed line-clamp-2 md:line-clamp-none">
+          <p className="text-[#0D9488] font-semibold text-xs md:text-sm mb-0 md:mb-3">{member.role}</p>
+          {/* Bio hidden on mobile (lives in the See more popup), full from md up */}
+          <p className="hidden md:block text-[#51606E] text-sm leading-relaxed">
             {member.bio}
           </p>
         </div>
@@ -159,7 +150,7 @@ export default function Team({ isMobile }) {
               </span>
             </motion.h2>
 
-            <motion.p variants={fadeInUp} className="text-[#5B6B7A] text-xl max-w-2xl mx-auto">
+            <motion.p variants={fadeInUp} className="text-[#00000] text-xl max-w-2xl mx-auto">
               Two entrepreneurs combining strategy and technology to build digital solutions that drive real business growth.
             </motion.p>
           </motion.div>
@@ -208,7 +199,7 @@ export default function Team({ isMobile }) {
             transition={{ delay: 0.3 }}
             className="flex flex-col items-center gap-6"
           >
-            <p className="text-[#5B6B7A] text-sm uppercase tracking-wider font-semibold">Follow Plexura</p>
+            <p className="text-[#EA580C] text-sm uppercase tracking-wider font-semibold">Follow Plexura</p>
             <div className="flex items-center gap-4">
               <motion.a
                 href="https://www.linkedin.com/company/plexura/"
@@ -291,11 +282,8 @@ export default function Team({ isMobile }) {
               </button>
 
               <div className="flex flex-col items-center text-center pt-2">
-                <div className="relative mb-4">
+                <div className="mb-4">
                   <Avatar member={activeMember} size="w-28 h-28" />
-                  <div className={`absolute -bottom-2 -right-2 w-9 h-9 bg-gradient-to-br ${activeMember.accent} rounded-lg flex items-center justify-center shadow-lg`}>
-                    {React.createElement(activeMember.icon, { size: 18, className: 'text-white' })}
-                  </div>
                 </div>
 
                 <h3 className="text-2xl font-bold text-[#142433] mb-1">{activeMember.name}</h3>
