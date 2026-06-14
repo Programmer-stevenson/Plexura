@@ -120,53 +120,7 @@ export default function About({ isMobile }) {
             ))}
           </motion.div>
 
-          {/* process */}
-          <div className="grid lg:grid-cols-12 gap-10 items-start bg-white rounded-3xl p-8 lg:p-12 border border-white/60 shadow-2xl shadow-black/30">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-3"
-            >
-              <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#0D9488] mb-4">Our Process</p>
-              <h3 className="font-display text-2xl lg:text-3xl font-bold text-[#142433] leading-snug">
-                From discovery<br className="hidden lg:block" /> to launch.
-              </h3>
-              <div className="flex items-center gap-6 mt-8 pt-6 border-t border-[#142433]/10">
-                {[
-                  { value: "100%", label: "Custom Code" },
-                  { value: "SEO", label: "Optimized" },
-                  { value: "24/7", label: "Support" }
-                ].map((metric, i) => (
-                  <div key={i}>
-                    <div className="font-display text-xl font-bold text-[#0D9488]">{metric.value}</div>
-                    <div className="text-[11px] uppercase tracking-wider text-[#51606E]">{metric.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainerFast}
-              className="lg:col-span-9 grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10"
-            >
-              {[
-                { step: "01", title: "Discovery & Planning", text: "Understanding your business, goals, and target audience before anything else." },
-                { step: "02", title: "Custom Mockups", text: "We design tailored mockups before writing a single line of code." },
-                { step: "03", title: "Iterative Build", text: "Development with regular check-ins and revisions as we go." },
-                { step: "04", title: "Launch & Support", text: "SEO optimization at launch, with ongoing support after." }
-              ].map((p, i) => (
-                <motion.div key={i} variants={fadeInUp} className="border-t-2 border-[#142433]/10 pt-5 relative">
-                  <span className="absolute -top-[2px] left-0 w-10 h-[2px] bg-[#FB923C]" />
-                  <h4 className="font-display text-lg font-bold text-[#142433] mt-2 mb-2">{p.title}</h4>
-                  <p className="text-sm text-[#51606E] leading-relaxed">{p.text}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+          
         </div>
       </AnimatedSection>
 
