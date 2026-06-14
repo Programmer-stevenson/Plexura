@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check, ArrowRight, ArrowUpRight, Plus, Code, Globe, Layers } from 'lucide-react';
+import { Check, ArrowRight, ArrowUpRight, Plus, Code, Globe, Layers, Megaphone, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, fadeInDown, staggerContainer, AnimatedSection } from '../components/ui';
 
@@ -27,6 +27,22 @@ const services = [
       description: "Complex web applications that power your business operations. From SaaS platforms to custom dashboards, we build production-ready systems that scale with your growth.",
       features: ["SaaS Development", "Database Architecture", "Real-time Features", "Cloud Deployment"],
       highlights: ["SaaS & Dashboard Platforms", "Real-Time Data & WebSocket Integration", "Cloud-Deployed & Auto-Scaling"],
+      color: "from-[#EA580C] to-[#EA580C]"
+    },
+    {
+      icon: Megaphone,
+      title: "Digital Marketing",
+      description: "Full-funnel campaigns that turn clicks into customers. From paid ads to social and email, we build data-driven marketing measured by real ROI, not vanity metrics.",
+      features: ["Paid Ads (Google & Meta)", "Social Media Campaigns", "Email Marketing", "Conversion Optimization"],
+      highlights: ["Data-Driven Campaign Strategy", "ROI-Focused Ad Spend", "Monthly Performance Reporting"],
+      color: "from-[#EA580C] to-[#EA580C]"
+    },
+    {
+      icon: Search,
+      title: "SEO & Search Optimization",
+      description: "Get found by the people already searching for you. Technical fixes, keyword strategy, and on-page optimization that climb the rankings and grow organic traffic that lasts.",
+      features: ["Technical SEO Audits", "Keyword Research & Strategy", "On-Page Optimization", "Local SEO & Google Business"],
+      highlights: ["Rank Higher on Google", "Sustainable Organic Traffic", "Local & National Targeting"],
       color: "from-[#EA580C] to-[#EA580C]"
     }
   ];
@@ -55,7 +71,7 @@ export default function Services({ isMobile, activeService, setActiveService }) 
                 Full Stack <span className="text-[#2DD4BF]">Web Solutions</span>
               </motion.h2>
             </div>
-            <motion.p variants={fadeInUp} className="lg:col-span-5 text-[#00000] text-lg leading-relaxed text-center lg:text-left lg:pb-2">
+            <motion.p variants={fadeInUp} className="lg:col-span-5 text-[#9FB6B2] text-lg leading-relaxed text-center lg:text-left lg:pb-2">
               Custom-coded web applications, scalable architectures, and hand-built solutions that deliver measurable ROI
             </motion.p>
           </motion.div>
