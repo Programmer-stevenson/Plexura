@@ -8,7 +8,7 @@ import { fadeInUp, fadeInDown, staggerContainer, AnimatedSection, GlowCard } fro
 // arbitrary gradient classes (needed for the image-fallback below).
 const MEMBERS = [
   {
-    name: 'Daniel V.',
+    name: 'Daniel V',
     role: 'Sales Engineer \u2022 Growth & Strategy',
     bio: 'Drives client relationships, business development, and marketing strategy. Turns vision into actionable plans that deliver measurable results.',
     img: '/daniel.png',
@@ -17,7 +17,7 @@ const MEMBERS = [
     linkedin: 'https://www.linkedin.com/in/daniel-velez-898195208/',
   },
   {
-    name: 'Brandon S.',
+    name: 'Brandon S',
     role: 'Software Engineer \u2022 Product & Development',
     bio: 'Architects and builds every product from the ground up. Full stack engineer specializing in React, Node.js, and scalable cloud infrastructure.',
     img: '/brandon.jpg',
@@ -39,11 +39,11 @@ const MEMBERS = [
 // ── Avatar (shared by card + popup) ───────────────────────
 function Avatar({ member, size }) {
   return (
-    <div className={`${size} rounded-2xl overflow-hidden border-2 border-[#EA580C]/40 shadow-lg shadow-[#EA580C]/10`}>
+    <div className={`${size} rounded-full overflow-hidden border-2 border-[#EA580C]/40 shadow-lg shadow-[#EA580C]/10`}>
       <img
         src={member.img}
         alt={member.name}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover object-top"
         onError={(e) => {
           e.target.style.display = 'none';
           e.target.parentElement.innerHTML =
@@ -150,7 +150,7 @@ export default function Team({ isMobile }) {
               </span>
             </motion.h2>
 
-            <motion.p variants={fadeInUp} className="text-[#00000] text-xl max-w-2xl mx-auto">
+            <motion.p variants={fadeInUp} className="text-[#5B6B7A] text-xl max-w-2xl mx-auto">
               Two entrepreneurs combining strategy and technology to build digital solutions that drive real business growth.
             </motion.p>
           </motion.div>
