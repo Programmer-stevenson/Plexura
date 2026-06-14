@@ -8,7 +8,7 @@ import { fadeInUp, fadeInDown, staggerContainer, AnimatedSection, GlowCard } fro
 // arbitrary gradient classes (needed for the image-fallback below).
 const MEMBERS = [
   {
-    name: 'Daniel Velez',
+    name: 'Daniel V.',
     role: 'Sales Engineer \u2022 Growth & Strategy',
     bio: 'Drives client relationships, business development, and marketing strategy. Turns vision into actionable plans that deliver measurable results.',
     img: '/daniel.png',
@@ -17,7 +17,7 @@ const MEMBERS = [
     linkedin: 'https://www.linkedin.com/in/daniel-velez-898195208/',
   },
   {
-    name: 'Brandon Stevenson',
+    name: 'Brandon S.',
     role: 'Software Engineer \u2022 Product & Development',
     bio: 'Architects and builds every product from the ground up. Full stack engineer specializing in React, Node.js, and scalable cloud infrastructure.',
     img: '/brandon.jpg',
@@ -26,7 +26,7 @@ const MEMBERS = [
     linkedin: 'https://www.linkedin.com/in/brandonstevensonprograms/',
   },
   {
-    name: 'Ed',
+    name: 'Ed O.',
     role: 'Application Support Analyst',
     bio: 'Keeps client applications running smoothly\u2014handling support requests, troubleshooting issues, and making sure help is fast and reliable.',
     img: '/Ed.jpg',
