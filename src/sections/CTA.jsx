@@ -29,7 +29,7 @@ export default function CTA({ isMobile }) {
             variants={staggerContainer}
             className="relative max-w-3xl text-center lg:text-left"
           >
-            <motion.p variants={fadeInDown} className="font-mono text-xs tracking-[0.3em] uppercase text-[#0D9488] mb-6">
+            <motion.p variants={fadeInDown}  className="font-mono text-xs tracking-[0.3em] uppercase text-[#0D9488] mb-6">
               Start Your Project
             </motion.p>
             <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-[#142433] leading-[1.02] mb-6">

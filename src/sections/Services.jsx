@@ -60,6 +60,16 @@ export default function Services({ isMobile, activeService, setActiveService }) 
             </motion.p>
           </motion.div>
 
+          {/* mobile-only prompt — service rows start collapsed on mobile */}
+          {activeService === null && (
+            <div className="lg:hidden flex justify-center mb-8">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EA580C]/40 bg-[#EA580C]/5 font-mono text-[11px] tracking-[0.2em] uppercase text-[#EA580C]">
+                <Plus size={13} />
+                Tap a service for details
+              </span>
+            </div>
+          )}
+
           {/* index rows */}
           <div className="bg-white rounded-[2rem] px-6 lg:px-10 py-1 border border-white/60 shadow-2xl shadow-black/40">
             {services.map((service, index) => {
@@ -141,15 +151,15 @@ export default function Services({ isMobile, activeService, setActiveService }) 
             className="flex justify-end mt-8"
           >
             <Link
-  to="/services"
-  onClick={() => window.scrollTo(0, 0)}
-  className="group inline-flex items-center gap-2 font-semibold text-[#EA580C] hover:text-[#FB923C] transition-colors"
->
-  <span className="font-mono text-xs tracking-[0.25em] uppercase">View All Services</span>
-  <span className="w-9 h-9 rounded-full border border-[#EA580C]/40 group-hover:border-[#EA580C] group-hover:bg-[#EA580C] group-hover:text-white flex items-center justify-center transition-all">
-    <ArrowUpRight size={16} />
-  </span>
-</Link>
+              to="/services"
+              onClick={() => window.scrollTo(0, 0)}
+              className="group inline-flex items-center gap-2 font-semibold text-[#142433] hover:text-[#0D9488] transition-colors"
+            >
+              <span className="font-mono text-xs tracking-[0.25em] uppercase">View All Services</span>
+              <span className="w-9 h-9 rounded-full border border-[#142433]/20 group-hover:border-[#0D9488] group-hover:bg-[#0D9488] group-hover:text-white flex items-center justify-center transition-all">
+                <ArrowUpRight size={16} />
+              </span>
+            </Link>
           </motion.div>
         </div>
       </AnimatedSection>

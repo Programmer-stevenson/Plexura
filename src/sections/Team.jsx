@@ -1,13 +1,142 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Code, Target, Linkedin, Facebook, ExternalLink, LifeBuoy } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { Code, Target, Linkedin, Facebook, ExternalLink, LifeBuoy, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, fadeInDown, staggerContainer, AnimatedSection, GlowCard } from '../components/ui';
 
+// ── Team data ─────────────────────────────────────────────
+// `accent` is kept as a literal string so Tailwind's JIT picks up the
+// arbitrary gradient classes (needed for the image-fallback below).
+const MEMBERS = [
+  {
+    name: 'Daniel Velez',
+    role: 'Co-Founder \u2022 Director of Strategy & Sales',
+    bio: 'Drives client relationships, business development, and marketing strategy. Turns vision into actionable plans that deliver measurable results.',
+    img: '/daniel.png',
+    initials: 'DV',
+    icon: Target,
+    accent: 'from-[#EA580C] to-[#F87171]',
+    linkedin: 'https://www.linkedin.com/in/daniel-velez-898195208/',
+  },
+  {
+    name: 'Brandon Stevenson',
+    role: 'Co-Founder \u2022 Director of Technology',
+    bio: 'Architects and builds every product from the ground up. Full stack engineer specializing in React, Node.js, and scalable cloud infrastructure.',
+    img: '/brandon.jpg',
+    initials: 'BS',
+    icon: Code,
+    accent: 'from-[#EA580C] to-[#EA580C]',
+    linkedin: 'https://www.linkedin.com/in/brandonstevensonprograms/',
+  },
+  {
+    name: 'Ed',
+    role: 'Application Support Analyst',
+    bio: 'Keeps client applications running smoothly\u2014handling support requests, troubleshooting issues, and making sure help is fast and reliable.',
+    img: '/Ed.jpg',
+    initials: 'ED',
+    icon: LifeBuoy,
+    accent: 'from-[#EA580C] to-[#F87171]',
+    linkedin: 'https://www.linkedin.com/in/edwardcoconnelliii/',
+  },
+];
+
+// ── Avatar (shared by card + popup) ───────────────────────
+function Avatar({ member, size }) {
+  return (
+    <div className={`${size} rounded-2xl overflow-hidden border-2 border-[#EA580C]/40 shadow-lg shadow-[#EA580C]/10`}>
+      <img
+        src={member.img}
+        alt={member.name}
+        className="w-full h-full object-cover"
+        onError={(e) => {
+          e.target.style.display = 'none';
+          e.target.parentElement.innerHTML =
+            `<div class="w-full h-full bg-gradient-to-br ${member.accent} flex items-center justify-center text-white text-4xl font-bold">${member.initials}</div>`;
+        }}
+      />
+    </div>
+  );
+}
+
+// ── Card ──────────────────────────────────────────────────
+function TeamCard({ member, isMobile, onSeeMore }) {
+  const Icon = member.icon;
+  return (
+    <GlowCard
+      isMobile={isMobile}
+      className="p-5 md:p-8 bg-white rounded-2xl border border-white/60 shadow-2xl shadow-[#0A1022]/30 overflow-hidden h-full"
+    >
+      <div className="relative flex flex-col h-full">
+        {/* Profile Image */}
+        <div className="flex justify-center mb-4 md:mb-6">
+          <div className="relative">
+            <Avatar member={member} size="w-24 h-24 md:w-32 md:h-32" />
+            <div className={`absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br ${member.accent} rounded-lg flex items-center justify-center shadow-lg`}>
+              <Icon size={16} className="text-white" />
+            </div>
+          </div>
+        </div>
+
+        {/* Info */}
+        <div className="text-center mb-4 md:mb-6 flex-1">
+          <h3 className="text-lg md:text-2xl font-bold text-[#142433] mb-1">{member.name}</h3>
+          <p className="text-[#0D9488] font-semibold text-xs md:text-sm mb-3">{member.role}</p>
+          {/* Bio is clamped on mobile, shown in full from md up */}
+          <p className="text-[#51606E] text-sm leading-relaxed line-clamp-2 md:line-clamp-none">
+            {member.bio}
+          </p>
+        </div>
+
+        {/* Buttons pinned to the bottom so every card lines up */}
+        <div className="flex flex-col gap-2 mt-auto">
+          {/* See more — mobile only (desktop already shows the full bio) */}
+          <button
+            onClick={onSeeMore}
+            className="md:hidden w-full py-2.5 bg-[#F0FDFA] border border-[#14B8A6]/40 rounded-xl text-[#0D9488] font-semibold text-xs hover:bg-[#14B8A6]/10 transition-all"
+          >
+            See more
+          </button>
+
+          {/* LinkedIn — shrink-safe so it never overflows the card */}
+          <motion.a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-1.5 w-full py-2.5 md:py-3 bg-[#0A66C2]/10 border border-[#0A66C2]/40 rounded-xl text-[#0A66C2] font-semibold text-xs md:text-sm hover:bg-[#0A66C2]/20 transition-all min-w-0"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Linkedin size={16} className="flex-shrink-0" />
+            <span className="truncate">
+              <span className="md:hidden">LinkedIn</span>
+              <span className="hidden md:inline">Connect on LinkedIn</span>
+            </span>
+            <ExternalLink size={14} className="hidden md:block flex-shrink-0" />
+          </motion.a>
+        </div>
+      </div>
+    </GlowCard>
+  );
+}
+
 export default function Team({ isMobile }) {
+  const [activeMember, setActiveMember] = useState(null);
+
+  // Lock background scroll + close on Escape while the popup is open
+  useEffect(() => {
+    if (!activeMember) return;
+    const onKey = (e) => e.key === 'Escape' && setActiveMember(null);
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [activeMember]);
+
   return (
     <>
-{/* OUR TEAM SECTION */}
+      {/* ============================================ */}
+      {/* OUR TEAM SECTION */}
       {/* ============================================ */}
       <AnimatedSection isMobile={isMobile} id="team" className="relative py-24 px-6 overflow-hidden">
         <div className="max-w-5xl mx-auto relative z-10">
@@ -22,14 +151,14 @@ export default function Team({ isMobile }) {
             <motion.div variants={fadeInDown} className="mb-5">
               <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#0D9488]">The Founders</span>
             </motion.div>
-            
+
             <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-bold mb-4">
               <span className="text-white">Meet the </span>
               <span className="bg-gradient-to-r from-[#14B8A6] to-[#2DD4BF] bg-clip-text text-transparent">
                 Founders
               </span>
             </motion.h2>
-            
+
             <motion.p variants={fadeInUp} className="text-[#5B6B7A] text-xl max-w-2xl mx-auto">
               Two entrepreneurs combining strategy and technology to build digital solutions that drive real business growth.
             </motion.p>
@@ -43,115 +172,19 @@ export default function Team({ isMobile }) {
             variants={staggerContainer}
             className="grid grid-cols-2 gap-4 md:gap-8 mb-16"
           >
-            {/* Daniel Velez */}
-            <motion.div
-              variants={fadeInUp}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              <GlowCard isMobile={isMobile} className="p-5 md:p-8 bg-white rounded-2xl border border-white/60 shadow-2xl shadow-[#0A1022]/30 overflow-hidden h-full">
-                <div className="relative">
-                  {/* Profile Image */}
-                  <div className="flex justify-center mb-4 md:mb-6">
-                    <div className="relative">
-                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-2 border-[#EA580C]/40 shadow-lg shadow-[#EA580C]/10">
-                        <img 
-                          src="/daniel.png" 
-                          alt="Daniel Velez"
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-[#EA580C] to-[#F87171] flex items-center justify-center text-white text-4xl font-bold">DV</div>';
-                          }}
-                        />
-                      </div>
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-[#EA580C] to-[#F87171] rounded-lg flex items-center justify-center shadow-lg">
-                        <Target size={16} className="text-white" />
-                      </div>
-                    </div>
-                  </div>
+            {/* Founders */}
+            {MEMBERS.slice(0, 2).map((member) => (
+              <motion.div
+                key={member.name}
+                variants={fadeInUp}
+                whileHover={{ y: -8 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                <TeamCard member={member} isMobile={isMobile} onSeeMore={() => setActiveMember(member)} />
+              </motion.div>
+            ))}
 
-                  {/* Info */}
-                  <div className="text-center mb-6">
-                    <h3 className="text-lg md:text-2xl font-bold text-[#142433] mb-1">Daniel Velez</h3>
-                    <p className="text-[#0D9488] font-semibold text-xs md:text-sm mb-3">Co-Founder &bull; Director of Strategy & Sales</p>
-                    <p className="text-[#51606E] text-sm leading-relaxed">
-                      Drives client relationships, business development, and marketing strategy. Turns vision into actionable plans that deliver measurable results.
-                    </p>
-                  </div>
-
-                  {/* LinkedIn Button */}
-                 <motion.a
-  href="https://www.linkedin.com/in/daniel-velez-898195208/"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center justify-center gap-2 w-full py-2.5 md:py-3 bg-[#0A66C2]/10 border border-[#0A66C2]/40 rounded-xl text-[#0A66C2] font-semibold text-xs md:text-sm hover:bg-[#0A66C2]/20 transition-all"
-  whileHover={{ scale: 1.02 }}
-  whileTap={{ scale: 0.98 }}
->
-  <Linkedin size={18} />
-  Connect on LinkedIn
-  <ExternalLink size={14} className="hidden md:block" />
-</motion.a>
-                </div>
-              </GlowCard>
-            </motion.div>
-
-            {/* Brandon Stevenson */}
-            <motion.div
-              variants={fadeInUp}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              <GlowCard isMobile={isMobile} className="p-5 md:p-8 bg-white rounded-2xl border border-white/60 shadow-2xl shadow-[#0A1022]/30 overflow-hidden h-full">
-                <div className="relative">
-                  {/* Profile Image */}
-                  <div className="flex justify-center mb-4 md:mb-6">
-                    <div className="relative">
-                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-2 border-[#EA580C]/40 shadow-lg shadow-[#EA580C]/10">
-                        <img 
-                          src="/brandon.jpg" 
-                          alt="Brandon Stevenson"
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-[#EA580C] to-[#EA580C] flex items-center justify-center text-white text-4xl font-bold">BS</div>';
-                          }}
-                        />
-                      </div>
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-[#EA580C] to-[#EA580C] rounded-lg flex items-center justify-center shadow-lg">
-                        <Code size={16} className="text-white" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Info */}
-                  <div className="text-center mb-6">
-                    <h3 className="text-lg md:text-2xl font-bold text-[#142433] mb-1">Brandon Stevenson</h3>
-                    <p className="text-[#0D9488] font-semibold text-xs md:text-sm mb-3">Co-Founder &bull; Director of Technology</p>
-                    <p className="text-[#51606E] text-sm leading-relaxed">
-                      Architects and builds every product from the ground up. Full stack engineer specializing in React, Node.js, and scalable cloud infrastructure.
-                    </p>
-                  </div>
-
-                  {/* LinkedIn Button */}
-                  <motion.a
-  href="https://www.linkedin.com/in/brandonstevensonprograms/"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center justify-center gap-2 w-full py-2.5 md:py-3 bg-[#0A66C2]/10 border border-[#0A66C2]/40 rounded-xl text-[#0A66C2] font-semibold text-xs md:text-sm hover:bg-[#0A66C2]/20 transition-all"
-  whileHover={{ scale: 1.02 }}
-  whileTap={{ scale: 0.98 }}
->
-  <Linkedin size={18} />
-  Connect on LinkedIn
-  <ExternalLink size={14} className="hidden md:block" />
-</motion.a>
-                </div>
-              </GlowCard>
-            </motion.div>
-
-            {/* Ed — Application Support Analyst, centered beneath the founders */}
+            {/* Ed — centered beneath the founders */}
             <div className="col-span-2 flex justify-center">
               <motion.div
                 initial="hidden"
@@ -159,56 +192,15 @@ export default function Team({ isMobile }) {
                 viewport={{ once: true }}
                 variants={fadeInUp}
                 whileHover={{ y: -8 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 className="w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)]"
               >
-                <GlowCard isMobile={isMobile} className="p-5 md:p-8 bg-white rounded-2xl border border-white/60 shadow-2xl shadow-[#0A1022]/30 overflow-hidden h-full">
-                  <div className="relative">
-                    <div className="flex justify-center mb-4 md:mb-6">
-                      <div className="relative">
-                        <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-2 border-[#EA580C]/40 shadow-lg shadow-[#EA580C]/10">
-                          <img 
-                            src="/Ed.jpg" 
-                            alt="Ed"
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-[#EA580C] to-[#F87171] flex items-center justify-center text-white text-4xl font-bold">ED</div>';
-                            }}
-                          />
-                        </div>
-                        <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-[#EA580C] to-[#F87171] rounded-lg flex items-center justify-center shadow-lg">
-                          <LifeBuoy size={16} className="text-white" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center mb-6">
-                      <h3 className="text-lg md:text-2xl font-bold text-[#142433] mb-1">Ed</h3>
-                      <p className="text-[#0D9488] font-semibold text-xs md:text-sm mb-3">Application Support Analyst</p>
-                      <p className="text-[#51606E] text-sm leading-relaxed">
-                        Keeps client applications running smoothly—handling support requests, troubleshooting issues, and making sure help is fast and reliable.
-                      </p>
-                    </div>
-
-                    <motion.a
-                      href="https://www.linkedin.com/in/edwardcoconnelliii/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full py-2.5 md:py-3 bg-[#0A66C2]/10 border border-[#0A66C2]/40 rounded-xl text-[#0A66C2] font-semibold text-xs md:text-sm hover:bg-[#0A66C2]/20 transition-all"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Linkedin size={18} />
-                      Connect on LinkedIn
-                      <ExternalLink size={14} className="hidden md:block" />
-                    </motion.a>
-                  </div>
-                </GlowCard>
+                <TeamCard member={MEMBERS[2]} isMobile={isMobile} onSeeMore={() => setActiveMember(MEMBERS[2])} />
               </motion.div>
             </div>
           </motion.div>
 
-         {/* Company Social Links */}
+          {/* Company Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -262,6 +254,71 @@ export default function Team({ isMobile }) {
       </AnimatedSection>
 
       {/* ============================================ */}
+      {/* SEE-MORE POPUP */}
+      {/* ============================================ */}
+      <AnimatePresence>
+        {activeMember && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Backdrop — tap to close */}
+            <motion.div
+              className="absolute inset-0 bg-[#0A1022]/70 backdrop-blur-sm"
+              onClick={() => setActiveMember(null)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+
+            {/* Popup card (zooms in) */}
+            <motion.div
+              className="relative z-10 w-full max-w-sm bg-white rounded-2xl border border-white/60 shadow-2xl shadow-[#0A1022]/40 p-6"
+              initial={{ opacity: 0, scale: 0.85, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 26 }}
+            >
+              {/* Close / exit button */}
+              <button
+                onClick={() => setActiveMember(null)}
+                aria-label="Close"
+                className="absolute top-3 right-3 w-9 h-9 flex items-center justify-center rounded-full bg-[#F1F5F9] text-[#51606E] hover:bg-[#E2E8F0] hover:text-[#142433] transition-all"
+              >
+                <X size={18} />
+              </button>
+
+              <div className="flex flex-col items-center text-center pt-2">
+                <div className="relative mb-4">
+                  <Avatar member={activeMember} size="w-28 h-28" />
+                  <div className={`absolute -bottom-2 -right-2 w-9 h-9 bg-gradient-to-br ${activeMember.accent} rounded-lg flex items-center justify-center shadow-lg`}>
+                    {React.createElement(activeMember.icon, { size: 18, className: 'text-white' })}
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-[#142433] mb-1">{activeMember.name}</h3>
+                <p className="text-[#0D9488] font-semibold text-sm mb-4">{activeMember.role}</p>
+                <p className="text-[#51606E] text-sm leading-relaxed mb-6">{activeMember.bio}</p>
+
+                <motion.a
+                  href={activeMember.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-[#0A66C2]/10 border border-[#0A66C2]/40 rounded-xl text-[#0A66C2] font-semibold text-sm hover:bg-[#0A66C2]/20 transition-all"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Linkedin size={18} />
+                  Connect on LinkedIn
+                  <ExternalLink size={14} />
+                </motion.a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

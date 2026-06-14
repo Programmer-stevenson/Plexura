@@ -13,7 +13,7 @@ import Footer from './sections/Footer';
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeService, setActiveService] = useState(0);
+  const [activeService, setActiveService] = useState(() => (getIsMobile() ? null : 0));
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);  
   const [submitError, setSubmitError] = useState('');
