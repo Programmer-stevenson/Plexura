@@ -89,7 +89,7 @@ export default function Hero({ mobileMenuOpen }) {
             className="mt-10 lg:mt-16 grid lg:grid-cols-12 gap-8 items-end border-t border-[#F4FAFB]/10 pt-8"
           >
             <p className="lg:col-span-6 text-lg md:text-xl text-[#00000] leading-relaxed max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-              Plexura designs and engineers high-performance websites, brands, and digital platforms for growing companies—custom-built, fully integrated, and engineered for results.
+Plexura designs and engineers customer acquisition systems that combine premium web experiences, CRM automation, appointment booking, automated text reminders, missed-call recovery, and intelligent follow-up to help businesses generate more leads and convert more customers.
             </p>
             <div className="lg:col-span-6 flex flex-wrap justify-center lg:justify-end items-center gap-4">
               <motion.a
@@ -136,7 +136,18 @@ export default function Hero({ mobileMenuOpen }) {
           >
             {[0, 1].map((dup) => (
               <div key={dup} className="flex items-center shrink-0">
-                {["React", "Node.js", "MongoDB", "Express", "WordPress", "Custom Code", "SEO Engineered", "Web Apps", "UI Engineering", "E-Commerce"].map((w, i) => (
+                {[
+  "Lead Generation",
+  "CRM Automation",
+  "Appointment Booking",
+  "Missed Call Recovery",
+  "Automated Follow-Up",
+  "Review Generation",
+  "Lead Nurturing",
+  "Customer Retention",
+  "Growth Systems",
+  "Conversion Optimization"
+].map((w, i) => (
                   <span key={i} className="flex items-center">
                     <span className="px-7">{w}</span>
                     <span className="text-[#5EEAD4] text-base leading-none">✳</span>

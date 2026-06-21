@@ -6,43 +6,43 @@ import { fadeInUp, fadeInDown, staggerContainer, AnimatedSection } from '../comp
 
 const services = [
     {
-      icon: Code,
-      title: "Custom Web Development",
-      description: "Enterprise-grade full stack applications built from the ground up. Hand-coded, scalable solutions using React, Node.js, and modern frameworks—no templates, no shortcuts.",
-      features: ["Full Stack Development", "Custom Code & Architecture", "Scalable Infrastructure", "API Development & Integrations"],
-      highlights: ["100% Hand-Coded, No Templates", "MERN Stack (MongoDB, Express, React, Node)", "Ongoing Support & Maintenance Available"],
-      color: "from-[#EA580C] to-[#EA580C]"
-    },
-    {
       icon: Globe,
-      title: "WordPress Solutions",
-      description: "Professional WordPress websites for businesses that need speed to market. Custom themes, plugins, and performance optimizations—built to launch fast and built to last.",
-      features: ["Custom Theme Development", "Plugin Customization", "Speed Optimization", "WooCommerce Integration"],
-      highlights: ["Custom Themes & Child Themes", "WooCommerce & Plugin Integration", "Launch-Ready in Weeks, Not Months"],
+      title: "Customer Acquisition Systems",
+      description: "More than a website—we build connected growth systems that help businesses capture leads, manage opportunities, automate follow-up, and convert more visitors into customers.",
+      features: ["Lead Capture Systems", "CRM Integration", "Conversion-Focused Websites", "Customer Journey Strategy"],
+      highlights: ["Turn Visitors Into Customers", "Built Around Leads, Not Just Looks", "Website + CRM + Automation Connected"],
       color: "from-[#EA580C] to-[#EA580C]"
     },
     {
       icon: Layers,
-      title: "Web Applications",
-      description: "Complex web applications that power your business operations. From SaaS platforms to custom dashboards, we build production-ready systems that scale with your growth.",
-      features: ["SaaS Development", "Database Architecture", "Real-time Features", "Cloud Deployment"],
-      highlights: ["SaaS & Dashboard Platforms", "Real-Time Data & WebSocket Integration", "Cloud-Deployed & Auto-Scaling"],
+      title: "CRM & Lead Management",
+      description: "We organize every lead, call, form submission, and opportunity inside a managed CRM so businesses can track prospects, follow up faster, and stop losing customers in the gaps.",
+      features: ["CRM Setup & Management", "Lead Pipelines", "Contact Management", "Opportunity Tracking"],
+      highlights: ["Track Every Lead in One Place", "Clear Sales Pipeline Visibility", "Designed for Local Business Growth"],
       color: "from-[#EA580C] to-[#EA580C]"
     },
     {
       icon: Megaphone,
-      title: "Digital Marketing",
-      description: "Full-funnel campaigns that turn clicks into customers. From paid ads to social and email, we build data-driven marketing measured by real ROI, not vanity metrics.",
-      features: ["Paid Ads (Google & Meta)", "Social Media Campaigns", "Email Marketing", "Conversion Optimization"],
-      highlights: ["Data-Driven Campaign Strategy", "ROI-Focused Ad Spend", "Monthly Performance Reporting"],
+      title: "Booking & Automated Follow-Up",
+      description: "We install booking systems, automated text message reminders, email follow-up, and customer communication workflows that help businesses book more appointments and reduce no-shows.",
+      features: ["Online Booking Systems", "Automated Text Reminders", "Email Follow-Up", "Customer Notifications"],
+      highlights: ["Book More Appointments", "Reduce Missed Opportunities", "Automated Customer Communication"],
+      color: "from-[#EA580C] to-[#EA580C]"
+    },
+    {
+      icon: Code,
+      title: "Premium Website Development",
+      description: "We design and engineer high-performance websites built to support lead generation, automation, booking, and long-term growth—not just look good on the surface.",
+      features: ["Custom Website Design", "Landing Page Development", "Lead Capture Forms", "Performance Optimization"],
+      highlights: ["Built to Convert", "Mobile-First Experience", "Custom-Coded When Needed"],
       color: "from-[#EA580C] to-[#EA580C]"
     },
     {
       icon: Search,
-      title: "SEO & Search Optimization",
-      description: "Get found by the people already searching for you. Technical fixes, keyword strategy, and on-page optimization that climb the rankings and grow organic traffic that lasts.",
-      features: ["Technical SEO Audits", "Keyword Research & Strategy", "On-Page Optimization", "Local SEO & Google Business"],
-      highlights: ["Rank Higher on Google", "Sustainable Organic Traffic", "Local & National Targeting"],
+      title: "Lead Recovery & Reputation Growth",
+      description: "We help businesses recover missed calls, generate more reviews, monitor reputation, and re-engage prospects with systems designed to turn lost opportunities into revenue.",
+      features: ["Missed Call Recovery", "Review Generation", "Reputation Monitoring", "Lead Re-Engagement"],
+      highlights: ["Recover Lost Leads Automatically", "Generate More Google Reviews", "Protect and Grow Your Reputation"],
       color: "from-[#EA580C] to-[#EA580C]"
     }
   ];
@@ -65,14 +65,14 @@ export default function Services({ isMobile, activeService, setActiveService }) 
           >
             <div className="lg:col-span-7 text-center lg:text-left">
               <motion.p variants={fadeInDown} className="font-mono text-xs tracking-[0.3em] uppercase text-[#2DD4BF] mb-5">
-                What We Build
+                What We Deliver
               </motion.p>
               <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-bold text-white leading-[1.02]">
-                Full Stack <span className="text-[#2DD4BF]">Web Solutions</span>
+                Customer Acquisition <span className="text-[#2DD4BF]">Systems</span>
               </motion.h2>
             </div>
             <motion.p variants={fadeInUp} className="lg:col-span-5 text-[#9FB6B2] text-lg leading-relaxed text-center lg:text-left lg:pb-2">
-              Custom-coded web applications, scalable architectures, and hand-built solutions that deliver measurable ROI
+              Websites, CRM automation, booking systems, missed-call recovery, text reminders, and lead management built to help businesses capture and convert more customers
             </motion.p>
           </motion.div>
 

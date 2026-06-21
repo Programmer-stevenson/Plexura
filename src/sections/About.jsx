@@ -1,12 +1,26 @@
 import React from 'react';
-import { Code, Smartphone, Globe, Layers, TrendingUp, Target, ArrowUpRight } from 'lucide-react';
+import {
+  Code,
+  Smartphone,
+  Globe,
+  Layers,
+  TrendingUp,
+  Target,
+  ArrowUpRight,
+  Database,
+  Calendar,
+  MessageSquare,
+  PhoneCall,
+  Star,
+  Workflow
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInDown, fadeInRight, staggerContainer, staggerContainerFast, AnimatedSection } from '../components/ui';
 
 export default function About({ isMobile }) {
   return (
     <>
-      {/* ABOUT — manifesto, capabilities, process */}
+      {/* ABOUT — growth systems, capabilities, process */}
       {/* ============================================ */}
       <AnimatedSection isMobile={isMobile} id="about" className="relative py-24 lg:py-32 px-6">
         <div className="max-w-7xl mx-auto">
@@ -23,7 +37,7 @@ export default function About({ isMobile }) {
               How We Build
             </motion.p>
             <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-bold text-white leading-[1.02]">
-              Custom Code. <span className="bg-gradient-to-r from-[#5EEAD4] to-[#2DD4BF] bg-clip-text text-transparent">Real Results.</span>
+              More Than a Website. <span className="bg-gradient-to-r from-[#5EEAD4] to-[#2DD4BF] bg-clip-text text-transparent">A Growth System.</span>
             </motion.h2>
           </motion.div>
 
@@ -37,18 +51,20 @@ export default function About({ isMobile }) {
               className="lg:col-span-7 space-y-8 bg-white rounded-3xl p-8 lg:p-10 border border-white/60 shadow-2xl shadow-black/30"
             >
               <motion.p variants={fadeInUp} className="text-xl md:text-2xl lg:text-[1.7rem] leading-snug text-[#142433] font-medium">
-                Every website we build is <span className="text-[#0D9488] underline decoration-[#2DD4BF] decoration-4 underline-offset-4">100% custom design</span> using the MERN stack—MongoDB, Headless CMS, Express.js, React, and Node.js. No templates, no page builders, no cookie-cutter solutions.
-              </motion.p>
-              <motion.p variants={fadeInUp} className="text-lg md:text-xl leading-relaxed text-[#51606E]">
-                Our custom designs are crafted from scratch to match your brand identity. We create unique user experiences that set you apart from competitors using the same tired templates.
-              </motion.p>
-              <motion.p variants={fadeInUp} className="text-lg md:text-xl leading-relaxed text-[#51606E]">
-                Need something simpler? We also offer <span className="text-[#0D9488] font-semibold">Headless WordPress solutions</span> with custom Frontend Design In React for businesses that need speed to market with ongoing maintenance support.
+                Plexura builds <span className="text-[#0D9488] underline decoration-[#2DD4BF] decoration-4 underline-offset-4">Customer Acquisition Systems</span> that connect your website, CRM, booking flow, text reminders, missed-call recovery, and follow-up into one growth engine.
               </motion.p>
 
-              {/* tech rule */}
+              <motion.p variants={fadeInUp} className="text-lg md:text-xl leading-relaxed text-[#51606E]">
+                A modern website should do more than look good. It should capture leads, organize opportunities, automate customer communication, and help turn interest into booked appointments.
+              </motion.p>
+
+              <motion.p variants={fadeInUp} className="text-lg md:text-xl leading-relaxed text-[#51606E]">
+                We combine premium web design, custom development, CRM automation, online booking, review generation, and lead recovery systems to help businesses stop losing opportunities and grow with more clarity.
+              </motion.p>
+
+              {/* system rule */}
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-2.5 pt-6 border-t border-[#142433]/10">
-                {["MongoDB", "Express.js", "React", "Node.js", "WordPress"].map((tech, i) => (
+                {["Websites", "CRM Automation", "Booking Systems", "Text Reminders", "Lead Recovery"].map((tech, i) => (
                   <span key={i} className="font-mono text-[11px] uppercase tracking-[0.15em] px-3.5 py-2 rounded-full bg-[#FFF7ED] border border-[#EA580C]/20 text-[#0D9488]">
                     {tech}
                   </span>
@@ -56,7 +72,7 @@ export default function About({ isMobile }) {
               </motion.div>
             </motion.div>
 
-            {/* SEO & performance rail */}
+            {/* growth systems rail */}
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -65,14 +81,15 @@ export default function About({ isMobile }) {
               className="lg:col-span-5 bg-white rounded-3xl p-8 lg:p-10 border border-white/60 shadow-2xl shadow-black/30"
             >
               <motion.p variants={fadeInDown} className="font-mono text-[11px] tracking-[0.25em] uppercase text-[#51606E] mb-2">
-                SEO & Site Performance
+                Growth System Components
               </motion.p>
+
               <div className="divide-y divide-[#142433]/10 border-y border-[#142433]/10">
                 {[
-                  { icon: TrendingUp, title: 'Search Engine Optimization', description: 'Rank higher, get found organically' },
-                  { icon: Target, title: 'Conversion Optimization', description: 'Turn visitors into customers' },
-                  { icon: Globe, title: 'Performance Optimization', description: 'Fast loads, strong Core Web Vitals' },
-                  { icon: Layers, title: 'Analytics & Tracking', description: 'Data-driven decisions' }
+                  { icon: Database, title: 'CRM & Lead Management', description: 'Track every call, form, contact, and opportunity' },
+                  { icon: Calendar, title: 'Appointment Booking', description: 'Make it easier for customers to schedule' },
+                  { icon: MessageSquare, title: 'Automated Follow-Up', description: 'Text and email workflows that keep leads engaged' },
+                  { icon: PhoneCall, title: 'Missed-Call Recovery', description: 'Automatically respond when calls are missed' }
                 ].map((value, index) => (
                   <motion.div
                     key={index}
@@ -103,10 +120,10 @@ export default function About({ isMobile }) {
             className="grid grid-cols-2 lg:grid-cols-4 rounded-3xl overflow-hidden mb-16 lg:mb-24 bg-white border border-white/60 shadow-2xl shadow-black/30"
           >
             {[
-              { icon: Code, title: 'MERN Stack', description: 'MongoDB, Express, React, Node' },
-              { icon: Smartphone, title: 'Custom Design', description: 'Unique, branded experiences' },
-              { icon: Globe, title: 'WordPress Option', description: 'When you need speed to market' },
-              { icon: TrendingUp, title: 'SEO Included', description: 'Built for search engines' }
+              { icon: TrendingUp, title: 'Premium Websites', description: 'Designed to capture and convert leads' },
+              { icon: Workflow, title: 'CRM Automation', description: 'Pipelines, workflows, and lead tracking' },
+              { icon: Calendar, title: 'Booking Systems', description: 'Appointments, reminders, and scheduling' },
+              { icon: Star, title: 'Reputation Growth', description: 'Reviews, recovery, and customer follow-up' }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -120,10 +137,8 @@ export default function About({ isMobile }) {
             ))}
           </motion.div>
 
-          
         </div>
       </AnimatedSection>
-
     </>
   );
 }

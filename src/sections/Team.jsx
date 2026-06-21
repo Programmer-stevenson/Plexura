@@ -140,13 +140,13 @@ export default function Team({ isMobile }) {
             className="text-center mb-16"
           >
             <motion.div variants={fadeInDown} className="mb-5">
-              <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#0D9488]">The Founders</span>
+              <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#0D9488]">Our Team</span>
             </motion.div>
 
             <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-bold mb-4">
               <span className="text-white">Meet the </span>
               <span className="bg-gradient-to-r from-[#14B8A6] to-[#2DD4BF] bg-clip-text text-transparent">
-                Founders
+                Team
               </span>
             </motion.h2>
 

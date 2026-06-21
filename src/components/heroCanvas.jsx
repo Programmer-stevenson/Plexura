@@ -78,7 +78,7 @@ const FACES = [
 export default function HeroCanvas({
   className = '',
   textures = null,
-  texture = '/texture.png',
+  texture = '/texture2.png',
   size,
   speed = 15,
   showParticles = true,
