@@ -151,7 +151,7 @@ export default function App() {
 
       <Team isMobile={isMobile} />
 
-      <CTA isMobile={isMobile} />
+      
 
       <Contact isMobile={isMobile} formSubmitted={formSubmitted} isSubmitting={isSubmitting} submitError={submitError} handleFormSubmit={handleFormSubmit} />
 
