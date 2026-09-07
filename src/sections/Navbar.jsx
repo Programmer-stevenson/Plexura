@@ -107,9 +107,11 @@ export default function Navbar({
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           resolvedScrolled
             ? resolvedIsMobile
-              ? 'bg-[#08090B]/95 shadow-md shadow-black/50 border-b border-[#D6A84A]/15'
+              ? 'bg-[#08090B] shadow-md shadow-black/50 border-b border-[#D6A84A]/20'
               : 'bg-[#08090B]/80 backdrop-blur-xl shadow-lg shadow-black/40 border-b border-[#D6A84A]/20'
-            : 'bg-transparent'
+            : resolvedIsMobile
+              ? 'bg-[#08090B] shadow-md shadow-black/50 border-b border-[#D6A84A]/20'
+              : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-3 lg:py-4">
@@ -522,10 +524,10 @@ export default function Navbar({
                 absolute
                 inset-0
                 bg-gradient-to-br
-                from-[#050608]/98
-                via-[#101216]/97
-                to-[#202329]/96
-                backdrop-blur-2xl
+                from-[#050608]
+                via-[#0B0D10]
+                to-[#12151A]
+                shadow-[-18px_0_50px_rgba(0,0,0,0.65)]
               "
             />
 
@@ -644,7 +646,7 @@ export default function Navbar({
                       px-6
                       py-5
                       rounded-2xl
-                      bg-white/[0.035]
+                      bg-[#111419]
                       border
                       border-white/10
                       backdrop-blur-sm
@@ -738,7 +740,7 @@ export default function Navbar({
                       px-6
                       py-5
                       rounded-2xl
-                      bg-white/[0.035]
+                      bg-[#111419]
                       border
                       border-white/10
                       backdrop-blur-sm
@@ -832,7 +834,7 @@ export default function Navbar({
                       px-6
                       py-5
                       rounded-2xl
-                      bg-white/[0.035]
+                      bg-[#111419]
                       border
                       border-white/10
                       backdrop-blur-sm
@@ -926,7 +928,7 @@ export default function Navbar({
                       px-6
                       py-5
                       rounded-2xl
-                      bg-white/[0.035]
+                      bg-[#111419]
                       border
                       border-white/10
                       backdrop-blur-sm
@@ -1020,7 +1022,7 @@ export default function Navbar({
                       px-6
                       py-5
                       rounded-2xl
-                      bg-white/[0.035]
+                      bg-[#111419]
                       border
                       border-white/10
                       backdrop-blur-sm
@@ -1114,7 +1116,7 @@ export default function Navbar({
                       px-6
                       py-5
                       rounded-2xl
-                      bg-white/[0.035]
+                      bg-[#111419]
                       border
                       border-white/10
                       backdrop-blur-sm
