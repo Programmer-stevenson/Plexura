@@ -436,25 +436,25 @@ export default function Services() {
     const isOpen = openSections[id];
 
     return (
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur">
+      <div className="overflow-hidden rounded-2xl border border-[#D9DEE3]/10 bg-white/[0.035] backdrop-blur">
         <button
           type="button"
           onClick={() => toggleSection(id)}
           className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
         >
           <span className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#2DD4BF]/10 text-[#2DD4BF]">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#D6A84A]/10 text-[#E2B65A] shadow-[0_0_16px_rgba(214,168,74,0.08)]">
               <Icon size={18} />
             </span>
 
-            <span className="font-display text-lg font-bold text-[#F4FAFB] sm:text-xl">
+            <span className="font-display text-lg font-bold text-[#F4F5F6] sm:text-xl">
               {title}
             </span>
           </span>
 
           <ChevronDown
             size={20}
-            className={`shrink-0 text-[#2DD4BF] transition-transform duration-300 ${
+            className={`shrink-0 text-[#E2B65A] transition-transform duration-300 ${
               isOpen ? 'rotate-180' : ''
             }`}
           />
@@ -469,7 +469,7 @@ export default function Services() {
               transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
-              <div className="border-t border-white/10 px-4 pb-4 pt-4 sm:px-5">
+              <div className="border-t border-[#D9DEE3]/10 px-4 pb-4 pt-4 sm:px-5">
                 {children}
               </div>
             </motion.div>
@@ -480,14 +480,14 @@ export default function Services() {
   };
 
   return (
-    <div id="top" className="min-h-screen overflow-x-hidden bg-[#0A0E12] text-[#F4FAFB]">
+    <div id="top" className="min-h-screen overflow-x-hidden bg-[#050608] text-[#F4F5F6]">
       {/* Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, #0A0E12 0%, #11161C 45%, #181E25 70%, #0D1217 100%)',
+              'linear-gradient(180deg, #050608 0%, #0B0D10 24%, #121419 52%, #1A1D22 76%, #0A0C0F 100%)',
           }}
         />
 
@@ -495,7 +495,7 @@ export default function Services() {
           className="absolute -top-56 right-[-12%] h-[48rem] w-[48rem] rounded-full md:h-[64rem] md:w-[64rem]"
           style={{
             background:
-              'radial-gradient(circle, rgba(45,212,191,0.18) 0%, transparent 68%)',
+              'radial-gradient(circle, rgba(241,208,120,0.20) 0%, rgba(214,168,74,0.11) 34%, transparent 68%)',
           }}
         />
 
@@ -503,7 +503,15 @@ export default function Services() {
           className="absolute bottom-[-18rem] left-[-12%] h-[34rem] w-[34rem] rounded-full md:h-[44rem] md:w-[44rem]"
           style={{
             background:
-              'radial-gradient(circle, rgba(249,115,22,0.09) 0%, transparent 65%)',
+              'radial-gradient(circle, rgba(201,128,114,0.10) 0%, rgba(184,131,72,0.07) 28%, transparent 65%)',
+          }}
+        />
+
+        <div
+          className="absolute left-1/2 top-[22%] h-[22rem] w-[22rem] -translate-x-1/2 rounded-full md:h-[34rem] md:w-[34rem]"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(214,168,74,0.09) 0%, transparent 70%)',
           }}
         />
 
@@ -512,7 +520,7 @@ export default function Services() {
             className="h-full w-full"
             style={{
               backgroundImage:
-                'linear-gradient(#2DD4BF 1px, transparent 1px), linear-gradient(90deg, #2DD4BF 1px, transparent 1px)',
+                'linear-gradient(rgba(214,168,74,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(214,168,74,0.7) 1px, transparent 1px)',
               backgroundSize: '50px 50px',
             }}
           />
@@ -534,7 +542,7 @@ export default function Services() {
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-4 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-[#2DD4BF] sm:text-xs"
+              className="mb-4 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-[#D6A84A] sm:text-xs"
             >
               Our Services
             </motion.p>
@@ -545,9 +553,9 @@ export default function Services() {
               transition={{ delay: 0.1, duration: 0.7 }}
               className="font-display text-[2.75rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
             >
-              <span className="text-[#F4FAFB]">Growth Systems</span>
+              <span className="text-[#F4F5F6]">Growth Systems</span>
               <br />
-              <span className="bg-gradient-to-r from-[#5EEAD4] via-[#2DD4BF] to-[#14B8A6] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#F8E6A0] via-[#F1D078] to-[#C98072] bg-clip-text text-transparent">
                 Built to Convert
               </span>
             </motion.h1>
@@ -556,7 +564,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.7 }}
-              className="mx-auto mt-5 max-w-2xl border-t border-[#F4FAFB]/10 pt-5 text-sm leading-relaxed text-[#AEBAC4] sm:text-lg"
+              className="mx-auto mt-5 max-w-2xl border-t border-[#D9DEE3]/10 pt-5 text-sm leading-relaxed text-[#AEB4BB] sm:text-lg"
             >
               Websites, CRM, booking, follow-up, and lead recovery systems built to help
               businesses capture and convert more opportunities.
@@ -570,7 +578,7 @@ export default function Services() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[20rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2DD4BF]/10 blur-3xl sm:h-[28rem] sm:w-[28rem] md:h-[34rem] md:w-[34rem] lg:h-[44rem] lg:w-[44rem]" />
+            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[20rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D6A84A]/12 blur-3xl sm:h-[28rem] sm:w-[28rem] md:h-[34rem] md:w-[34rem] lg:h-[44rem] lg:w-[44rem]" />
 
             <HeroCanvas className="absolute inset-0" />
           </motion.div>
@@ -597,15 +605,15 @@ export default function Services() {
                       : ''
                   } ${
                     isActive
-                      ? 'border-[#2DD4BF] bg-[#2DD4BF]/15 shadow-xl shadow-[#2DD4BF]/15'
-                      : 'border-white/10 bg-white/[0.06] hover:border-[#2DD4BF]/60 hover:bg-white/[0.09]'
+                      ? 'border-[#D6A84A] bg-[#D6A84A]/12 shadow-xl shadow-[#D6A84A]/12'
+                      : 'border-[#D9DEE3]/10 bg-white/[0.05] hover:border-[#D6A84A]/50 hover:bg-white/[0.075]'
                   }`}
                 >
                   <div
                     className={`mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300 sm:h-12 sm:w-12 ${
                       isActive
-                        ? 'bg-gradient-to-br from-[#5EEAD4] to-[#14B8A6] text-white'
-                        : 'bg-[#2DD4BF]/10 text-[#2DD4BF] group-hover:bg-[#2DD4BF]/20'
+                        ? 'bg-gradient-to-br from-[#F8E6A0] via-[#D6A84A] to-[#B88348] text-[#08090B] shadow-[0_0_18px_rgba(214,168,74,0.18)]'
+                        : 'bg-[#D6A84A]/10 text-[#E2B65A] group-hover:bg-[#D6A84A]/18'
                     }`}
                   >
                     <Icon size={22} />
@@ -613,14 +621,14 @@ export default function Services() {
 
                   <h3
                     className={`font-display text-sm font-bold leading-tight sm:text-base ${
-                      isActive ? 'text-[#F4FAFB]' : 'text-[#DDE8EA]'
+                      isActive ? 'text-[#F4F5F6]' : 'text-[#D4D7DB]'
                     }`}
                   >
                     {service.shortTitle}
                   </h3>
 
                   {isActive && (
-                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-[#2DD4BF]/10 to-transparent" />
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-[#F1D078]/12 via-[#D6A84A]/10 to-transparent" />
                   )}
                 </button>
               );
@@ -638,26 +646,26 @@ export default function Services() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35 }}
-            className="mb-5 rounded-3xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur sm:p-7 lg:p-8"
+            className="mb-5 rounded-3xl border border-[#D6A84A]/20 bg-gradient-to-br from-[#1B1E23] via-[#111419] to-[#090B0E] p-5 backdrop-blur sm:p-7 lg:p-8 shadow-2xl shadow-black/40"
           >
             <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
               <div className="relative shrink-0">
-                <div className="absolute -inset-3 rounded-2xl bg-[#2DD4BF]/20 blur-xl" />
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#5EEAD4] to-[#14B8A6] shadow-xl sm:h-20 sm:w-20">
-                  <CurrentIcon size={34} className="text-white" />
+                <div className="absolute -inset-3 rounded-2xl bg-[#D6A84A]/18 blur-xl" />
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F8E6A0] via-[#D6A84A] to-[#B88348] shadow-xl shadow-[#D6A84A]/10 sm:h-20 sm:w-20">
+                  <CurrentIcon size={34} className="text-[#08090B]" />
                 </div>
               </div>
 
               <div>
-                <h2 className="font-display text-3xl font-bold leading-tight text-[#F4FAFB] sm:text-4xl lg:text-5xl">
+                <h2 className="font-display text-3xl font-bold leading-tight text-[#F4F5F6] sm:text-4xl lg:text-5xl">
                   {currentService.title}
                 </h2>
 
-                <p className="mt-2 text-base font-semibold text-[#2DD4BF] sm:text-lg">
+                <p className="mt-2 text-base font-semibold text-[#F1D078] sm:text-lg">
                   {currentService.tagline}
                 </p>
 
-                <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#AEBAC4] sm:text-base">
+                <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#AEB4BB] sm:text-base">
                   {currentService.description}
                 </p>
               </div>
@@ -674,17 +682,17 @@ export default function Services() {
                   return (
                     <div
                       key={index}
-                      className="rounded-2xl border border-white/10 bg-white/90 p-3 shadow-md transition-all duration-300 hover:border-[#2DD4BF] sm:p-4"
+                      className="rounded-2xl border border-[#D9DEE3]/10 bg-gradient-to-br from-[#1B1E23] via-[#111419] to-[#090B0E] p-3 shadow-md transition-all duration-300 hover:border-[#D6A84A]/50 sm:p-4"
                     >
-                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#2DD4BF]/10 text-[#14B8A6]">
+                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#D6A84A]/10 text-[#E2B65A]">
                         <FeatureIcon size={20} />
                       </div>
 
-                      <h4 className="font-display text-sm font-bold leading-tight text-[#0A0E12] sm:text-base">
+                      <h4 className="font-display text-sm font-bold leading-tight text-[#F4F5F6] sm:text-base">
                         {feature.title}
                       </h4>
 
-                      <p className="mt-2 hidden text-sm leading-relaxed text-[#475569] sm:block">
+                      <p className="mt-2 hidden text-sm leading-relaxed text-[#969DA5] sm:block">
                         {feature.description}
                       </p>
                     </div>
@@ -698,7 +706,7 @@ export default function Services() {
                 {currentService.technologies.map((tech, index) => (
                   <div
                     key={index}
-                    className="rounded-full border border-white/10 bg-white/90 px-3 py-2 text-center text-xs font-semibold text-[#0A0E12] shadow-sm transition-all duration-300 hover:border-[#2DD4BF] hover:text-[#14B8A6] sm:text-sm"
+                    className="rounded-full border border-[#D9DEE3]/10 bg-white/[0.04] px-3 py-2 text-center text-xs font-semibold text-[#D4D7DB] shadow-sm transition-all duration-300 hover:border-[#D6A84A]/50 hover:text-[#F1D078] sm:text-sm"
                   >
                     {tech}
                   </div>
@@ -711,17 +719,17 @@ export default function Services() {
                 {currentService.process.map((item, index) => (
                   <div
                     key={index}
-                    className="rounded-2xl border border-white/10 bg-white/90 p-4 shadow-md"
+                    className="rounded-2xl border border-[#D9DEE3]/10 bg-gradient-to-br from-[#1B1E23] via-[#111419] to-[#090B0E] p-4 shadow-md"
                   >
-                    <div className="mb-3 font-mono text-xs font-bold tracking-[0.2em] text-[#14B8A6]">
+                    <div className="mb-3 font-mono text-xs font-bold tracking-[0.2em] text-[#F1D078]">
                       {item.step}
                     </div>
 
-                    <h4 className="font-display text-lg font-bold text-[#0A0E12]">
+                    <h4 className="font-display text-lg font-bold text-[#F4F5F6]">
                       {item.title}
                     </h4>
 
-                    <p className="mt-2 text-sm leading-relaxed text-[#475569]">
+                    <p className="mt-2 text-sm leading-relaxed text-[#969DA5]">
                       {item.description}
                     </p>
                   </div>
@@ -734,13 +742,13 @@ export default function Services() {
                 {currentService.outcomes.map((outcome, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/90 p-4 shadow-md"
+                    className="flex items-start gap-3 rounded-2xl border border-[#D9DEE3]/10 bg-gradient-to-br from-[#1B1E23] via-[#111419] to-[#090B0E] p-4 shadow-md"
                   >
-                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#5EEAD4] to-[#14B8A6]">
-                      <CheckCircle size={15} className="text-white" />
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#F8E6A0] via-[#D6A84A] to-[#B88348]">
+                      <CheckCircle size={15} className="text-[#08090B]" />
                     </div>
 
-                    <p className="text-sm font-medium leading-relaxed text-[#0A0E12] sm:text-base">
+                    <p className="text-sm font-medium leading-relaxed text-[#F4F5F6] sm:text-base">
                       {outcome}
                     </p>
                   </div>
@@ -750,15 +758,23 @@ export default function Services() {
           </div>
 
           {/* CTA */}
-          <div className="relative mt-8 overflow-hidden rounded-3xl border border-[#2DD4BF]/25 bg-[#2DD4BF]/10 p-6 text-center sm:p-8 lg:mt-12">
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#2DD4BF]/10 to-transparent" />
+          <div className="relative mt-8 overflow-hidden rounded-3xl border border-[#D6A84A]/25 bg-gradient-to-br from-[#D6A84A]/[0.09] via-[#C98072]/[0.05] to-[#D6A84A]/[0.03] p-6 text-center sm:p-8 lg:mt-12">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#F1D078]/10 via-[#D6A84A]/10 to-transparent" />
+
+            <div
+              className="pointer-events-none absolute -top-20 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full blur-3xl"
+              style={{
+                background:
+                  'radial-gradient(circle, rgba(214,168,74,0.16) 0%, rgba(201,128,114,0.08) 40%, transparent 72%)',
+              }}
+            />
 
             <div className="relative z-10 mx-auto max-w-2xl">
-              <h3 className="font-display text-3xl font-bold text-[#F4FAFB] sm:text-4xl">
+              <h3 className="font-display text-3xl font-bold text-[#F4F5F6] sm:text-4xl">
                 Ready to Get Started?
               </h3>
 
-              <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#AEBAC4] sm:text-lg">
+              <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#AEB4BB] sm:text-lg">
                 Tell us what you need and we’ll help you choose the right system for your business.
               </p>
 
@@ -769,7 +785,7 @@ export default function Services() {
                     e.preventDefault();
                     goToSection('contact');
                   }}
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#5EEAD4] to-[#14B8A6] px-6 py-3 text-sm font-bold text-[#06201C] shadow-xl shadow-[#2DD4BF]/20 transition-all duration-300 hover:scale-[1.02] sm:text-base"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#F8E6A0] via-[#D6A84A] to-[#B88348] px-6 py-3 text-sm font-bold text-[#08090B] shadow-xl shadow-[#D6A84A]/20 transition-all duration-300 hover:scale-[1.02] sm:text-base"
                 >
                   Start Project
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
@@ -781,7 +797,7 @@ export default function Services() {
                     e.preventDefault();
                     goToSection('contact');
                   }}
-                  className="inline-flex items-center justify-center rounded-full border border-[#2DD4BF]/70 px-6 py-3 text-sm font-bold text-[#2DD4BF] transition-all duration-300 hover:bg-[#2DD4BF]/10 sm:text-base"
+                  className="inline-flex items-center justify-center rounded-full border border-[#D6A84A]/70 px-6 py-3 text-sm font-bold text-[#F1D078] transition-all duration-300 hover:bg-[#D6A84A]/10 sm:text-base"
                 >
                   Schedule Call
                 </a>
