@@ -178,7 +178,7 @@ export default function Navbar({
             <div className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => goToHomeSection('home')}
-                className="text-[#5B6B7A] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
@@ -186,7 +186,7 @@ export default function Navbar({
 
               <button
                 onClick={() => goToHomeSection('services')}
-                className="text-[#5B6B7A] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 Solutions
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
@@ -194,7 +194,7 @@ export default function Navbar({
 
               <button
                 onClick={goToServicesPage}
-                className="text-[#5B6B7A] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 Services
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
@@ -202,7 +202,7 @@ export default function Navbar({
 
               <button
                 onClick={() => goToHomeSection('about')}
-                className="text-[#5B6B7A] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 About
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
@@ -210,18 +210,18 @@ export default function Navbar({
 
               <button
                 onClick={() => goToHomeSection('team')}
-                className="text-[#5B6B7A] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 Our Team
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
               </button>
 
               <button
-                onClick={() => goToHomeSection('contact')}
-                className="px-6 py-2 bg-gradient-to-r from-[#14B8A6] to-[#2DD4BF] text-[#06201C] font-bold rounded-lg hover:shadow-lg hover:shadow-[#2DD4BF]/40 transition-all duration-200"
-              >
-                Contact Us
-              </button>
+  onClick={() => goToHomeSection('contact')}
+  className="px-6 py-2 bg-gradient-to-r from-[#EA580C] to-[#FB923C] text-white font-bold rounded-lg hover:shadow-lg hover:shadow-orange-600/40 transition-all duration-200"
+>
+  Contact Us
+</button>
             </div>
 
             <button

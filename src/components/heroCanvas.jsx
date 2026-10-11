@@ -189,25 +189,7 @@ export default function HeroCanvas({
         </div>
       </div>
 
-      {showParticles &&
-        [...Array(particleCount)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 rounded-full hc-anim"
-            style={{
-              background: i % 3 === 2 ? '#38BDF8' : '#FFFFFF',
-              top: `${30 + 40 * Math.sin((i * Math.PI * 2) / particleCount)}%`,
-              left: `${30 + 40 * Math.cos((i * Math.PI * 2) / particleCount)}%`,
-              opacity: animate ? undefined : 0.5,
-              animation: animate
-                ? `hc-floatParticle ${3 + i * 0.5}s ease-in-out ${i * 0.3}s infinite`
-                : 'none',
-              '--hc-anim': animate
-                ? `hc-floatParticle ${3 + i * 0.5}s ease-in-out ${i * 0.3}s infinite`
-                : 'none',
-            }}
-          />
-        ))}
+      
 
       {showOrbit && (
         <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
