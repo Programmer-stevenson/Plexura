@@ -585,12 +585,15 @@ export default function Footer() {
     justify-content: center;
   }
 }
+  .plexura-footer .pf-background::after {
+  display: none;
+}
   
       `}</style>
 
       <div className="pf-background" aria-hidden="true">
         <img
-          src="/services-hero.png"
+          src="/footer-hero.png"
           alt=""
           loading="lazy"
           decoding="async"

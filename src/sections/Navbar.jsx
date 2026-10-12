@@ -126,7 +126,7 @@ export default function Navbar({
                   {['l', 'e', 'x', 'u', 'r', 'a'].map((letter, index) => (
                     <span
                       key={index}
-                      className="logo-anim inline-block"
+                      className="logo-anim inline-block text-[#F4FAFB]"
                       style={{
                         marginLeft: index === 0 ? '-0.6em' : '0',
                         animation: `glow-mint 10s ease-in-out infinite ${
@@ -178,7 +178,7 @@ export default function Navbar({
             <div className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => goToHomeSection('home')}
-                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[#F4FAFB] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
@@ -186,7 +186,7 @@ export default function Navbar({
 
               <button
                 onClick={() => goToHomeSection('services')}
-                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[#F4FAFB] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 Solutions
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
@@ -194,7 +194,7 @@ export default function Navbar({
 
               <button
                 onClick={goToServicesPage}
-                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[#F4FAFB] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 Services
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
@@ -202,7 +202,7 @@ export default function Navbar({
 
               <button
                 onClick={() => goToHomeSection('about')}
-                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[#F4FAFB] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 About
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
@@ -210,7 +210,7 @@ export default function Navbar({
 
               <button
                 onClick={() => goToHomeSection('team')}
-                className="text-[rgba(234, 88, 12, 0.9)] hover:text-[#EA580C] transition-colors duration-200 relative group"
+                className="text-[#F4FAFB] hover:text-[#EA580C] transition-colors duration-200 relative group"
               >
                 Our Team
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
