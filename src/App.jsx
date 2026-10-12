@@ -149,7 +149,7 @@ export default function App() {
 
       <About isMobile={isMobile} />
 
-      <Team isMobile={isMobile} />
+      
 
       
 
