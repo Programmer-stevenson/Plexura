@@ -354,30 +354,91 @@ export default function Services() {
           padding: 150px 0 64px;
         }
 
-        .sv-main .sv-hero-image {
+        .sv-main .sv-hero-background {
           position: absolute;
           inset: 0;
+          z-index: 0;
+          display: block;
+          pointer-events: none;
+          user-select: none;
+        }
+
+        .sv-main .sv-hero-background img {
+          display: block;
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center;
-          z-index: -2;
         }
 
-        .sv-main .sv-hero::after {
+        .sv-main .sv-hero-background::before {
           content: '';
           position: absolute;
           inset: 0;
-          z-index: -1;
+          z-index: 1;
+          pointer-events: none;
           background:
             linear-gradient(
               90deg,
-              #091525E8 0%,
-              #09152595 55%,
-              #09152535 100%
+              rgba(18, 19, 20, .99) 0%,
+              rgba(20, 21, 22, .97) 17%,
+              rgba(23, 24, 25, .87) 34%,
+              rgba(25, 26, 27, .55) 49%,
+              rgba(25, 26, 27, .14) 68%,
+              rgba(25, 26, 27, 0) 82%
             ),
-            linear-gradient(0deg, #091525B8, transparent 65%);
+            linear-gradient(
+              180deg,
+              rgba(5, 19, 33, .08) 0%,
+              rgba(4, 17, 30, .02) 49%,
+              rgba(4, 17, 30, .18) 69%,
+              rgba(4, 17, 30, .60) 100%
+            );
+        }
+
+        .sv-main .sv-hero-background::after {
+          content: '';
+          position: absolute;
+          inset: auto 0 0 0;
+          height: 36%;
+          z-index: 2;
           pointer-events: none;
+          background:
+            radial-gradient(
+              110% 115% at 20% 130%,
+              rgba(15, 43, 70, .56) 0 34%,
+              transparent 34.4%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(5, 18, 31, 0) 0%,
+              rgba(5, 18, 31, .34) 48%,
+              rgba(5, 18, 31, .72) 100%
+            );
+        }
+
+        @media (max-width: 900px) {
+          .sv-main .sv-hero-background::before {
+            background:
+              linear-gradient(
+                90deg,
+                rgba(18, 19, 20, .98) 0%,
+                rgba(22, 23, 24, .91) 46%,
+                rgba(24, 25, 26, .30) 76%,
+                rgba(24, 25, 26, .08) 100%
+              ),
+              linear-gradient(
+                180deg,
+                rgba(4, 17, 30, .05) 0%,
+                rgba(4, 17, 30, .10) 50%,
+                rgba(4, 17, 30, .82) 100%
+              );
+          }
+        }
+
+        .sv-main .sv-hero-layout {
+          position: relative;
+          z-index: 3;
         }
 
         .sv-main .sv-hero-layout {
@@ -942,14 +1003,16 @@ export default function Services() {
 
       <main className="sv-main">
         <section className="sv-hero">
-          <img
-            className="sv-hero-image"
-            src="/services-hero.png"
-            alt=""
-            aria-hidden="true"
-            fetchPriority="high"
-            decoding="async"
-          />
+          <picture className="sv-hero-background" aria-hidden="true">
+            <source media="(min-width: 1024px)" srcSet="/hero-desktop.png" />
+            <img
+              src="/hero-mobile.png"
+              alt=""
+              fetchPriority="high"
+              decoding="async"
+              draggable={false}
+            />
+          </picture>
 
           <div className="sv-container sv-hero-layout">
             <div>
@@ -979,7 +1042,7 @@ export default function Services() {
               </a>
             </div>
 
-            
+
           </div>
         </section>
 

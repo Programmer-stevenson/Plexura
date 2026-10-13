@@ -208,13 +208,7 @@ export default function Navbar({
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
               </button>
 
-              <button
-                onClick={() => goToHomeSection('team')}
-                className="text-[#F4FAFB] hover:text-[#EA580C] transition-colors duration-200 relative group"
-              >
-                Our Team
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA580C] group-hover:w-full transition-all duration-300" />
-              </button>
+          
 
               <button
   onClick={() => goToHomeSection('contact')}

@@ -161,17 +161,81 @@ export default function Hero({ mobileMenuOpen }) {
               );
           }
         }
+          @media (min-width: 1024px) {
+  #home {
+    display: block;
+    min-height: auto;
+    padding: 150px 0 64px;
+  }
+
+  #home .plexura-home-container {
+    width: min(calc(100% - 48px), 1200px);
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 0;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.7fr);
+    column-gap: 32px;
+  }
+
+  /* Meta strip, heading, cube, summary, and buttons:
+     same left-column width as Services. */
+  #home .plexura-home-container > * {
+    grid-column: 1;
+    min-width: 0;
+  }
+
+  #home .plexura-home-container > :first-child {
+    margin-bottom: 16px;
+  }
+
+  #home .plexura-heading-group {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  #home .plexura-heading-line {
+    white-space: normal;
+  }
+
+  #home .plexura-cube-slot {
+    width: 100%;
+    max-width: 320px;
+    height: 280px;
+    margin: 0;
+  }
+
+  #home .plexura-home-container > .border-t {
+    margin-top: 24px;
+    padding-top: 0;
+    border-top: 0;
+    gap: 24px;
+  }
+
+  #home .plexura-home-container > .border-t > p {
+    max-width: 630px;
+  }
+
+  /* Keep the technology ribbon across the container. */
+  #home .plexura-home-container > :last-child {
+    grid-column: 1 / -1;
+    margin-top: 64px;
+    padding-bottom: 0;
+  }
+}
       `}</style>
 
       {/* Background */}
       <picture className="plexura-hero-background" aria-hidden="true">
         <source
           media="(min-width: 1024px)"
-          srcSet="/hero-desktop.png"
+          srcSet="/services-hero.png"
         />
 
         <img
-          src="/hero-mobile.png"
+          src="/mobile-hero-services.png"
           alt=""
           fetchPriority="high"
           decoding="async"
@@ -179,7 +243,7 @@ export default function Hero({ mobileMenuOpen }) {
         />
       </picture>
 
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+      <div className="plexura-home-container max-w-7xl mx-auto px-6 w-full relative z-10">
         {/* Meta strip */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
@@ -259,9 +323,7 @@ export default function Hero({ mobileMenuOpen }) {
           <p className="m-0 text-lg md:text-base text-[#B7BDC4] leading-relaxed max-w-xl text-center md:text-left">
             Plexura Designs and Develops High-Performance Websites and
             Delivers IT Consulting Across End-User Hardware, Workstation
-            Setup, Enterprise Infrastructure &amp; Networking. Our Cloud
-            and AI Solutions Help Businesses Modernize Operations,
-            Improve Efficiency, and Scale With Confidence.
+            Setup, Enterprise Infrastructure &amp; Networking.
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4">
